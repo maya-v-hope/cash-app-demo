@@ -1,4 +1,4 @@
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const initialMessages = [
   {
@@ -15,6 +15,15 @@ const Chat = function() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [showInput, setShowInput] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   useEffect(() => {
     // Start the sequence after the initial message
@@ -139,6 +148,7 @@ const Chat = function() {
             </div>
           </div>
         ))}
+        <div ref={messagesEndRef} />
       </div>
 
       {/* Chat Input */}
