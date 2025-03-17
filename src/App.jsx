@@ -24,6 +24,11 @@ const mockTransactions = [
   },
 ];
 
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+}
+
 function App() {
   const [balance, setBalance] = useState(142.95);
   const [transactions, setTransactions] = useState(mockTransactions);
@@ -79,7 +84,7 @@ function App() {
                   <p className={`font-medium ${transaction.amount > 0 ? 'text-green-600' : 'text-red-600'}`}>
                     {transaction.amount > 0 ? '+' : ''}{transaction.amount.toFixed(2)}
                   </p>
-                  <p className="text-sm text-gray-500">{transaction.date}</p>
+                  <p className="text-sm text-gray-500">{formatDate(transaction.date)}</p>
                 </div>
               </div>
             ))}
