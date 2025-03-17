@@ -1,4 +1,5 @@
 const { useState } = React;
+import Chat from './Chat';
 
 const mockTransactions = [
   {
