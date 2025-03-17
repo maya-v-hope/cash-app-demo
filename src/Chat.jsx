@@ -4,7 +4,7 @@ const initialMessages = [
   {
     id: 1,
     type: 'system',
-    content: "Hey! I'm Mayo Wizardo, your financial assistant. I'll help you make smarter decisions about your money.",
+    content: "Hey! I'm your magical financial wizard! ✨ I'll help you make smarter decisions about your money.",
     timestamp: '2024-03-17T10:00:00'
   }
 ];
@@ -63,7 +63,7 @@ const Chat = function({ onSavingsTransfer }) {
         setMessages(prev => [...prev, {
           id: messages.length + 2,
           type: 'system',
-          content: "Great! I've moved $50 from your savings to cover the water bill. You're all set for tomorrow.",
+          content: "✨ Magic complete! I've moved $50 from your savings to cover the water bill. You're all set for tomorrow!",
           timestamp: new Date().toISOString()
         }]);
         
@@ -75,7 +75,7 @@ const Chat = function({ onSavingsTransfer }) {
           setMessages(prev => [...prev, {
             id: messages.length + 3,
             type: 'system',
-            content: "Your grocery spending is up 20% this month. Want to see where the extra money is going?",
+            content: "✨ My crystal ball shows your grocery spending is up 20% this month. Want to see where the extra money is going?",
             timestamp: new Date().toISOString()
           }]);
           setShowInput(true);
@@ -88,7 +88,7 @@ const Chat = function({ onSavingsTransfer }) {
         setMessages(prev => [...prev, {
           id: messages.length + 2,
           type: 'system',
-          content: "I found the increase! You had one unusually large purchase at Berkeley Bowl last week for $120. This is about 40% higher than your typical grocery runs.",
+          content: "✨ My magical analysis reveals: You had one unusually large purchase at Berkeley Bowl last week for $120. This is about 40% higher than your typical grocery runs.",
           timestamp: new Date().toISOString()
         }]);
         
@@ -97,7 +97,7 @@ const Chat = function({ onSavingsTransfer }) {
           setMessages(prev => [...prev, {
             id: messages.length + 3,
             type: 'system',
-            content: "That coffee shop purchase would put you $40 over your daily budget. Your paycheck hits on Friday—want to proceed anyway?",
+            content: "✨ My financial foresight shows: That coffee shop purchase would put you $40 over your daily budget. Your paycheck hits on Friday—want to proceed anyway?",
             timestamp: new Date().toISOString()
           }]);
           setShowInput(true);
@@ -112,8 +112,8 @@ const Chat = function({ onSavingsTransfer }) {
       {/* Chat Header */}
       <div className="p-4 border-b border-gray-200 flex justify-between items-center">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">Mayo Wizardo</h3>
-          <p className="text-sm text-gray-500">Here to help with your money decisions</p>
+          <h3 className="text-lg font-bold text-gray-900">✨ Financial Wizard ✨</h3>
+          <p className="text-sm text-gray-500">Your Magical Money Guide</p>
         </div>
         <button
           onClick={() => setIsMinimized(!isMinimized)}
