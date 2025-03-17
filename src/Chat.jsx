@@ -97,13 +97,27 @@ const Chat = function({ onSavingsTransfer }) {
           setMessages(prev => [...prev, {
             id: messages.length + 3,
             type: 'system',
-            content: "✨ My financial foresight shows: That coffee shop purchase would put you $40 over your daily budget. Your paycheck hits on Friday—want to proceed anyway?",
+            content: "✨ My financial foresight shows: That coffee shop purchase would put you $40 over your daily budget. Your paycheck hits on Friday—want some suggestions for how to manage that?",
             timestamp: new Date().toISOString()
           }]);
           setShowInput(true);
           setCurrentStep(2);
         }, 3000);
       }, 1000);
+    } else if (currentStep === 2) {
+      // After coffee shop response
+      if (inputValue.toLowerCase().includes('yes') || inputValue.toLowerCase().includes('sure')) {
+        setTimeout(() => {
+          setMessages(prev => [...prev, {
+            id: messages.length + 2,
+            type: 'system',
+            content: "You recently bought some clothes at Tracksmith, but I can switch that to pay over time with Afterpay. Shall I go ahead?",
+            timestamp: new Date().toISOString()
+          }]);
+          setShowInput(true);
+          setCurrentStep(3);
+        }, 1000);
+      }
     }
   };
 
