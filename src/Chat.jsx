@@ -9,7 +9,7 @@ const initialMessages = [
   }
 ];
 
-const Chat = function() {
+const Chat = function({ onSavingsTransfer }) {
   const [messages, setMessages] = useState(initialMessages);
   const [inputValue, setInputValue] = useState('');
   const [isMinimized, setIsMinimized] = useState(false);
@@ -64,6 +64,9 @@ const Chat = function() {
           content: "Great! I've moved $50 from your savings to cover the water bill. You're all set for tomorrow.",
           timestamp: new Date().toISOString()
         }]);
+        
+        // Trigger the savings transfer
+        onSavingsTransfer(50);
         
         // Wait 5 seconds then show grocery alert
         setTimeout(() => {

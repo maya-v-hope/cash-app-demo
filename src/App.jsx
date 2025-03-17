@@ -25,8 +25,20 @@ const mockTransactions = [
 ];
 
 function App() {
-  const [balance] = useState(142.95);
+  const [balance, setBalance] = useState(142.95);
+  const [transactions, setTransactions] = useState(mockTransactions);
   const [showChat, setShowChat] = useState(true);
+
+  const handleSavingsTransfer = (amount) => {
+    setBalance(prev => prev + amount);
+    setTransactions(prev => [{
+      id: String(prev.length + 1),
+      amount: amount,
+      description: 'Transfer from Savings',
+      category: 'Transfer',
+      date: new Date().toISOString().split('T')[0],
+    }, ...prev]);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -57,7 +69,7 @@ function App() {
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-lg font-semibold text-gray-600 mb-4">Recent Transactions</h2>
           <div className="space-y-4">
-            {mockTransactions.map((transaction) => (
+            {transactions.map((transaction) => (
               <div key={transaction.id} className="flex items-center justify-between py-3 border-b">
                 <div>
                   <p className="font-medium text-gray-900">{transaction.description}</p>
@@ -109,7 +121,7 @@ function App() {
       </nav>
 
       {/* Chat Component */}
-      {showChat && <Chat />}
+      {showChat && <Chat onSavingsTransfer={handleSavingsTransfer} />}
     </div>
   );
 }
