@@ -4,7 +4,7 @@ const initialMessages = [
   {
     id: 1,
     type: 'system',
-    content: "Hey! I'm your financial assistant. I'll help you make smarter decisions about your money.",
+    content: "Hey! I'm Mayo Wizardo, your financial assistant. I'll help you make smarter decisions about your money.",
     timestamp: '2024-03-17T10:00:00'
   }
 ];
@@ -112,7 +112,7 @@ const Chat = function({ onSavingsTransfer }) {
       {/* Chat Header */}
       <div className="p-4 border-b border-gray-200 flex justify-between items-center">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">Financial Assistant</h3>
+          <h3 className="text-lg font-semibold text-gray-900">Mayo Wizardo</h3>
           <p className="text-sm text-gray-500">Here to help with your money decisions</p>
         </div>
         <button
