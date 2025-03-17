@@ -25,7 +25,7 @@ const mockTransactions = [
 ];
 
 function App() {
-  const [balance] = useState(1429.50);
+  const [balance] = useState(142.95);
   const [showChat, setShowChat] = useState(true);
 
   return (
