@@ -1,4 +1,4 @@
-const { useState } = React;
+const { useState, useEffect } = React;
 
 const mockTransactions = [
   {
@@ -43,9 +43,11 @@ function App() {
   const [balance, setBalance] = useState(142.95);
   const [transactions, setTransactions] = useState(mockTransactions);
   const [showChat, setShowChat] = useState(true);
+  const [balanceKey, setBalanceKey] = useState(0);
 
   const handleSavingsTransfer = (amount) => {
     setBalance(prev => prev + amount);
+    setBalanceKey(prev => prev + 1);
     setTransactions(prev => [{
       id: String(prev.length + 1),
       amount: amount,
@@ -69,7 +71,9 @@ function App() {
         {/* Balance Card */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-lg font-semibold text-gray-600">Available Balance</h2>
-          <p className="text-4xl font-bold text-gray-900 mt-2">${balance.toFixed(2)}</p>
+          <p key={balanceKey} className="text-4xl font-bold text-gray-900 mt-2 animate-sparkle">
+            ${balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+          </p>
           <div className="mt-4 flex space-x-4">
             <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-opacity-90">
               Send
