@@ -45,7 +45,7 @@ function App() {
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">🪄 Money Magic 🪄</h1>
+          <h1 className="text-2xl font-bold text-gray-900 text-center">🪄 Money Magic 🪄</h1>
         </div>
       </header>
 
