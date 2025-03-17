@@ -29,6 +29,16 @@ function formatDate(dateString) {
   return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
 }
 
+function formatAmount(amount) {
+  const isNegative = amount < 0;
+  const absAmount = Math.abs(amount);
+  const formattedAmount = absAmount.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+  return `${isNegative ? '-' : '+'}$${formattedAmount}`;
+}
+
 function App() {
   const [balance, setBalance] = useState(142.95);
   const [transactions, setTransactions] = useState(mockTransactions);
@@ -82,7 +92,7 @@ function App() {
                 </div>
                 <div className="text-right">
                   <p className={`font-medium ${transaction.amount > 0 ? 'text-green-600' : 'text-red-600'}`}>
-                    {transaction.amount > 0 ? '+' : ''}{transaction.amount.toFixed(2)}
+                    {formatAmount(transaction.amount)}
                   </p>
                   <p className="text-sm text-gray-500">{formatDate(transaction.date)}</p>
                 </div>
