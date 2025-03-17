@@ -33,7 +33,7 @@ const mockMessages = [
   }
 ];
 
-function Chat() {
+const Chat = function() {
   const [messages, setMessages] = useState(mockMessages);
   const [inputValue, setInputValue] = useState('');
 
@@ -114,6 +114,4 @@ function Chat() {
       </div>
     </div>
   );
-}
-
-export default Chat; 
+}; 
