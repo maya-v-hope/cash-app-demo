@@ -26,7 +26,7 @@ const mockTransactions = [
 
 function App() {
   const [balance] = useState(1429.50);
-  const [showChat, setShowChat] = useState(false);
+  const [showChat, setShowChat] = useState(true);
 
   return (
     <div className="min-h-screen bg-gray-50">
