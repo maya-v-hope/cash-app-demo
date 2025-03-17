@@ -149,7 +149,7 @@ const Chat = function() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-            placeholder={showInput ? "Type 'yes' to continue..." : "Waiting for assistant..."}
+            placeholder="Type here"
             className="flex-1 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             disabled={!showInput}
           />
